@@ -2,21 +2,23 @@ const VideoData = require("../db/models/video-insertion");
 
 const insertData = (req, res) => {
   const body = req.body;
-
+  
   if (!body) {
     return res.status(400).json({
       success: false,
       error: "Select a square",
     });
   }
-
+  
   const video = new VideoData();
-  video.incidentData.push(body.incidentData);
-
+  // video.incidentData.push(body);
+  video.incidentData = body;
+  
   if (!video) {
     return res.status(400).json({ success: false });
   }
-
+  
+  console.log('inserting some data')
   video
     .save()
     .then(() => {
@@ -28,13 +30,14 @@ const insertData = (req, res) => {
     })
     .catch((err) => {
       return res.status(400).json({
-        error,
+        err,
         message: "Not Inserted",
       });
     });
 };
 
 const getData = async (req, res) => {
+  console.log("getting some data");
   await VideoData.find({}, (err, data) => {
     if (err) {
       return res.status(400).json({ success: false, error: err });
@@ -47,7 +50,20 @@ const getData = async (req, res) => {
   }).catch((err) => console.log(err));
 };
 
+const deleteAllData = async (req, res) => {
+  // TO BE REMOVED IN PRODUCTION
+  console.log("deleted some data")
+  await VideoData.deleteMany({}, (err, data) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err });
+    }
+
+    return res.status(200).json({ success: true, data: data });
+  });
+};
+
 module.exports = {
   insertData,
-  getData
-}
+  getData,
+  deleteAllData
+};

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const VideoSchema = new Schema({
   incidentData: {
-    type: [],
+    type: Schema.Types.Mixed,
     required: true,
   },
 })
