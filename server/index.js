@@ -20,7 +20,7 @@ app.get("/", async (req, res) => {
 
 app.post("/insertData", routes.insertData);
 app.get("/getData", routes.getData);
-app.get("/deleteAllData", routes.deleteAllData);
+app.get("/deleteAllData", routes.deleteAllData); // To be removed in production
 
 app.listen(PORT, () => {
   console.log(`listening at port ${PORT}`);

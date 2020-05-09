@@ -1,5 +1,10 @@
 # Video Annotation Tool
 
+### Pre-Requisites
+- A mongoDB cloud atlas connection string
+- A .env file with the following value stored in the server folder:
+- A video file in the MP4 format, renamed to 'video.mp4' in the componentes folder of Client/src/
+  ```MONGO_URL=<your_mongodb_connection_string>```
 
 ### To install:
 ```

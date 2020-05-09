@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import video from "./video.mp4";
 import { TwoDimensionalVideo } from "react-annotation-tool";
 
-let xd;
-
 export default class VideoAnnotation extends Component {
   constructor(props) {
     super(props);
@@ -58,37 +56,10 @@ export default class VideoAnnotation extends Component {
     this.updateVideoData(e.annotations);
   }
   
-  defaultAnn = [
-    {
-      color: "rgba(0,255,81,1)",
-      incidents: [
-        {
-          x: 108.25,
-          y: 48,
-          width: 161,
-          height: 111,
-          time: 0,
-          status: "Show",
-          id: "k9ziei8r",
-          name: "k9ziei8r",
-          label: "",
-        },
-      ],
-      childrenNames: [],
-      parentName: "",
-      id: "k9ziei8r",
-      name: "k9ziei8r",
-      label: "1",
-    },
-  ];
-  
   render() {
-    xd = this.state.data;
-    
     console.log(this.state.data);
     return (
       <div>
-        <Home />
         <TwoDimensionalVideo
           url={video}
           controls
@@ -99,9 +70,3 @@ export default class VideoAnnotation extends Component {
     );
   }
 }
-
-const Home = () => (
-  <div>
-    {JSON.stringify(xd[0])}
-  </div>
-);
