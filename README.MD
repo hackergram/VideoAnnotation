@@ -9,9 +9,10 @@
 ### To install:
 ```
 1. git clone https://github.com/TheAwesomezter/VideoAnnotation.git
-2. cd server
-3. npm install
-4. npm start
+2. cd VideoAnnotation
+3. cd server
+4. npm install
+5. npm start
 
   Then open another terminal and go to the cloned repository:
 
